@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1,
+    "name": "The Alvarado Home",
+    "neighborhood": "The Heights",
+    "lat": 29.7998,
+    "lng": -95.3987,
+    "dateVisited": "2026-07-01",
+    "notes": "First stop of the week. The whole family gathered on the porch before we brought the cross in. Grandma made tamales for dinner.",
+    "photos": [
+      "https://picsum.photos/seed/house1a/480/320",
+      "https://picsum.photos/seed/house1b/480/320",
+      "https://picsum.photos/seed/house1c/480/320"
+    ],
+    "videos": [
+      {
+        "title": "Blessing at the door",
+        "youtubeId": "aqz-KE-bpKQ"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "The Nguyen Family",
+    "neighborhood": "Montrose",
+    "lat": 29.742,
+    "lng": -95.391,
+    "dateVisited": "2026-07-02",
+    "notes": "Small apartment but a huge welcome. Kids led the prayer this time. Pho for dinner!",
+    "photos": [
+      "https://picsum.photos/seed/house2a/480/320",
+      "https://picsum.photos/seed/house2b/480/320"
+    ],
+    "videos": [
+      {
+        "title": "Family prayer",
+        "youtubeId": "aqz-KE-bpKQ"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "The Whitfield Residence",
+    "neighborhood": "River Oaks",
+    "lat": 29.758,
+    "lng": -95.418,
+    "dateVisited": "2026-07-03",
+    "notes": "Big backyard gathering, neighbors joined in too. Ended the night with s'mores.",
+    "photos": [
+      "https://picsum.photos/seed/house3a/480/320",
+      "https://picsum.photos/seed/house3b/480/320",
+      "https://picsum.photos/seed/house3c/480/320"
+    ],
+    "videos": []
+  },
+  {
+    "id": 4,
+    "name": "The Kim Household",
+    "neighborhood": "Rice Village / West U",
+    "lat": 29.718,
+    "lng": -95.411,
+    "dateVisited": "2026-07-04",
+    "notes": "Quiet, meaningful visit. They asked us to pray for a family member overseas.",
+    "photos": [
+      "https://picsum.photos/seed/house4a/480/320"
+    ],
+    "videos": [
+      {
+        "title": "Evening reflection",
+        "youtubeId": "aqz-KE-bpKQ"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "The Okafor Family",
+    "neighborhood": "Bellaire",
+    "lat": 29.7058,
+    "lng": -95.4588,
+    "dateVisited": "2026-07-05",
+    "notes": "Loud, joyful house full of cousins visiting for the summer. Jollof rice for dinner.",
+    "photos": [
+      "https://picsum.photos/seed/house5a/480/320",
+      "https://picsum.photos/seed/house5b/480/320"
+    ],
+    "videos": []
+  },
+  {
+    "id": 6,
+    "name": "The Delgado Residence",
+    "neighborhood": "Meyerland",
+    "lat": 29.689,
+    "lng": -95.465,
+    "dateVisited": "2026-07-06",
+    "notes": "They just moved in last month, so this was their first cross visit ever.",
+    "photos": [
+      "https://picsum.photos/seed/house6a/480/320",
+      "https://picsum.photos/seed/house6b/480/320",
+      "https://picsum.photos/seed/house6c/480/320"
+    ],
+    "videos": [
+      {
+        "title": "First-time welcome",
+        "youtubeId": "aqz-KE-bpKQ"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "The Ramirez Home",
+    "neighborhood": "Midtown",
+    "lat": 29.742,
+    "lng": -95.375,
+    "dateVisited": "2026-07-07",
+    "notes": "Rooftop dinner with a view of downtown. Great conversation about the week ahead.",
+    "photos": [
+      "https://picsum.photos/seed/house7a/480/320"
+    ],
+    "videos": []
+  },
+  {
+    "id": 8,
+    "name": "The Chukwu Family",
+    "neighborhood": "EaDo",
+    "lat": 29.753,
+    "lng": -95.354,
+    "dateVisited": "2026-07-08",
+    "notes": "Newly renovated home, first gathering they've hosted since moving in.",
+    "photos": [
+      "https://picsum.photos/seed/house8a/480/320",
+      "https://picsum.photos/seed/house8b/480/320"
+    ],
+    "videos": [
+      {
+        "title": "House tour + blessing",
+        "youtubeId": "aqz-KE-bpKQ"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "The Petrov Household",
+    "neighborhood": "Memorial",
+    "lat": 29.777,
+    "lng": -95.487,
+    "dateVisited": "2026-07-09",
+    "notes": "Kids put on a little puppet show before dinner. Lots of laughs.",
+    "photos": [
+      "https://picsum.photos/seed/house9a/480/320",
+      "https://picsum.photos/seed/house9b/480/320",
+      "https://picsum.photos/seed/house9c/480/320"
+    ],
+    "videos": []
+  },
+  {
+    "id": 10,
+    "name": "The Osei Family",
+    "neighborhood": "Spring Branch",
+    "lat": 29.805,
+    "lng": -95.49,
+    "dateVisited": "2026-07-10",
+    "notes": "Grilled dinner in the driveway with three generations in one house.",
+    "photos": [
+      "https://picsum.photos/seed/house10a/480/320"
+    ],
+    "videos": [
+      {
+        "title": "Driveway dinner",
+        "youtubeId": "aqz-KE-bpKQ"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "The Alcantara Residence",
+    "neighborhood": "Katy",
+    "lat": 29.7858,
+    "lng": -95.8244,
+    "dateVisited": "2026-07-11",
+    "notes": "Long drive out west, well worth it. They had the whole street over.",
+    "photos": [
+      "https://picsum.photos/seed/house11a/480/320",
+      "https://picsum.photos/seed/house11b/480/320"
+    ],
+    "videos": []
+  },
+  {
+    "id": 12,
+    "name": "The Devereaux Family",
+    "neighborhood": "Cypress",
+    "lat": 29.9691,
+    "lng": -95.6972,
+    "dateVisited": "2026-07-12",
+    "notes": "Rainy night but a warm welcome inside. Homemade gumbo for dinner.",
+    "photos": [
+      "https://picsum.photos/seed/house12a/480/320",
+      "https://picsum.photos/seed/house12b/480/320",
+      "https://picsum.photos/seed/house12c/480/320"
+    ],
+    "videos": [
+      {
+        "title": "Rainy night gathering",
+        "youtubeId": "aqz-KE-bpKQ"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "The Bhatt Household",
+    "neighborhood": "Champions",
+    "lat": 29.97,
+    "lng": -95.547,
+    "dateVisited": "2026-07-13",
+    "notes": "First visit for this family - they heard about it from a neighbor two houses down.",
+    "photos": [
+      "https://picsum.photos/seed/house13a/480/320"
+    ],
+    "videos": []
+  },
+  {
+    "id": 14,
+    "name": "The Fontenot Family",
+    "neighborhood": "Kingwood",
+    "lat": 30.053,
+    "lng": -95.191,
+    "dateVisited": "2026-07-14",
+    "notes": "Northernmost stop yet. Bonfire out back after dinner.",
+    "photos": [
+      "https://picsum.photos/seed/house14a/480/320",
+      "https://picsum.photos/seed/house14b/480/320"
+    ],
+    "videos": [
+      {
+        "title": "Bonfire after dinner",
+        "youtubeId": "aqz-KE-bpKQ"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "The Marchetti Residence",
+    "neighborhood": "Sugar Land",
+    "lat": 29.6197,
+    "lng": -95.6349,
+    "dateVisited": "2026-07-15",
+    "notes": "Last stop before the weekend. Whole extended family flew in for it.",
+    "photos": [
+      "https://picsum.photos/seed/house15a/480/320",
+      "https://picsum.photos/seed/house15b/480/320",
+      "https://picsum.photos/seed/house15c/480/320"
+    ],
+    "videos": []
+  }
+]

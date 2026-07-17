@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Jesus Youth Houston &mdash; Jubilee Cross to Homes</title>
+<meta name="description" content="A nightly dashboard tracking the Jubilee Cross as it visits homes across the Houston region &mdash; photos, videos, and the story from every house." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#12141a" />
+<meta property="og:title" content="Jesus Youth Houston — Jubilee Cross to Homes" />
+<meta property="og:description" content="Tracking the Jubilee Cross as it visits homes across the Houston region." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="preconnect" href="https://a.tile.openstreetmap.org" />
+<link rel="preconnect" href="https://picsum.photos" />
+<link rel="preconnect" href="https://fastly.picsum.photos" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="26" height="26"><rect x="28" y="10" width="8" height="44" rx="2" fill="currentColor"/><rect x="12" y="24" width="40" height="8" rx="2" fill="currentColor"/></svg>
+    </span>
+    <span class="brand-text">
+      <span class="brand-title">Jesus Youth Houston</span>
+      <span class="brand-tagline">Jubilee Cross &middot; Cross to Homes</span>
+    </span>
+  </a>
+</header>
+
+<main class="dashboard">
+
+  <section class="hero">
+    <h1>Cross to Homes</h1>
+    <p class="hero-sub">
+      Every night during the Jubilee Year, we carry the cross to a different home across the
+      Houston region &mdash; sharing a meal, praying together, and capturing the story of the
+      visit in photos and video. This dashboard follows the journey, house by house.
+    </p>
+  </section>
+
+  <section class="stats" id="stats">
+    <div class="stat-card">
+      <div class="stat-value" id="stat-total">&mdash;</div>
+      <div class="stat-label">Houses visited</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-first">&mdash;</div>
+      <div class="stat-label">First visit</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-latest">&mdash;</div>
+      <div class="stat-label">Most recent visit</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-neighborhoods">&mdash;</div>
+      <div class="stat-label">Neighborhoods reached</div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <h2 class="section-title">The map</h2>
+    <p class="section-lead">Click a pin to open that house's hub &mdash; the story, photos, and video from that night.</p>
+    <div id="map"></div>
+  </section>
+
+  <section class="about-section">
+    <h2 class="section-title">About the Jubilee Cross</h2>
+    <p>
+      The tradition traces back to 1984, when Pope John Paul II entrusted a large wooden cross
+      to the young people of Rome at the close of the Holy Year of the Redemption, asking them
+      to carry it across the world as a sign of Christ's love. That cross &mdash; known ever
+      since as the Youth Cross, or Pilgrim Cross &mdash; has since traveled with World Youth Day
+      to cities on every continent.
+    </p>
+    <p>
+      <strong>Jesus Youth</strong> is a Catholic charismatic youth movement that began in Kerala,
+      India in the 1970s and took its name in 1985; today it's active in more than 35 countries
+      and was formally recognized by the Vatican in 2016. For the current Jubilee Year, our
+      Houston chapter is carrying a Jubilee Cross from home to home each night &mdash; continuing,
+      on a small and local scale, the same pilgrimage first entrusted to young people four
+      decades ago.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Jesus Youth Houston &middot; Jubilee Year 2025&ndash;2026</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/map.js"></script>
+</body>
+</html>
