@@ -18,12 +18,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://unpkg.com" crossorigin />
-<link rel="preconnect" href="https://a.tile.openstreetmap.org" />
+<link rel="preconnect" href="https://basemaps.cartocdn.com" />
 <link rel="preconnect" href="https://picsum.photos" />
 <link rel="preconnect" href="https://fastly.picsum.photos" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="css/style.css?v=4" />
 </head>
 <body>
 
@@ -58,15 +59,15 @@
 
   <section class="stats" id="stats">
     <div class="stat-card reveal">
-      <div class="stat-value" id="stat-total">&mdash;</div>
+      <div class="stat-value" id="stat-total"><span class="skeleton skeleton-stat"></span></div>
       <div class="stat-label">Houses visited</div>
     </div>
     <div class="stat-card reveal" style="transition-delay: 0.06s">
-      <div class="stat-value" id="stat-first">&mdash;</div>
+      <div class="stat-value" id="stat-first"><span class="skeleton skeleton-stat"></span></div>
       <div class="stat-label">First visit</div>
     </div>
     <div class="stat-card reveal" style="transition-delay: 0.12s">
-      <div class="stat-value" id="stat-latest">&mdash;</div>
+      <div class="stat-value" id="stat-latest"><span class="skeleton skeleton-stat"></span></div>
       <div class="stat-label">Most recent visit</div>
     </div>
   </section>
@@ -103,9 +104,10 @@
   <p class="credit">Made by Albert Skaria</p>
 </footer>
 
-<script src="js/theme.js"></script>
-<script src="js/reveal.js"></script>
+<script src="js/theme.js?v=2"></script>
+<script src="js/reveal.js?v=2"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="js/map.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="js/map.js?v=3"></script>
 </body>
 </html>

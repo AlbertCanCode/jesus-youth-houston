@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://picsum.photos" />
 <link rel="preconnect" href="https://fastly.picsum.photos" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css?v=4" />
 </head>
 <body>
 
@@ -42,7 +42,19 @@
 
 <div class="hub-wrap" id="hub-wrap">
   <a class="back-link" href="index.html">&larr; Back to map</a>
-  <div id="hub-content">Loading...</div>
+  <div id="hub-content" aria-busy="true" aria-live="polite">
+    <div class="skeleton skeleton-title"></div>
+    <div class="skeleton skeleton-meta"></div>
+    <div class="skeleton skeleton-notes"></div>
+    <div class="skeleton skeleton-section-title"></div>
+    <div class="photo-grid">
+      <div class="skeleton skeleton-photo"></div>
+      <div class="skeleton skeleton-photo"></div>
+      <div class="skeleton skeleton-photo"></div>
+    </div>
+    <div class="skeleton skeleton-section-title"></div>
+    <div class="skeleton skeleton-video"></div>
+  </div>
 </div>
 
 <footer class="site-footer">
@@ -58,9 +70,9 @@
   <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
 
-<script src="js/theme.js"></script>
-<script src="js/reveal.js"></script>
-<script src="js/lightbox.js"></script>
-<script src="js/house.js"></script>
+<script src="js/theme.js?v=2"></script>
+<script src="js/reveal.js?v=2"></script>
+<script src="js/lightbox.js?v=2"></script>
+<script src="js/house.js?v=2"></script>
 </body>
 </html>

@@ -11,15 +11,57 @@ const map = L.map('map', {
   zoomDelta: 0.5
 });
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+const TILE_URLS = {
+  dark: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  light: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+};
+
+let tileLayer = L.tileLayer(currentTileUrl(), {
   maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors'
+  attribution: '&copy; OpenStreetMap contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
 }).addTo(map);
+
+function currentTileUrl() {
+  const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  return TILE_URLS[theme];
+}
+
+// Swap the basemap to match light/dark mode (theme.js dispatches this on toggle).
+window.addEventListener('themechange', () => {
+  map.removeLayer(tileLayer);
+  tileLayer = L.tileLayer(currentTileUrl(), {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  }).addTo(map);
+});
 
 // A fast drag can outrun the map's own cursor and start selecting the page
 // text behind it — block text selection on the page for the duration of the drag.
 map.on('dragstart', () => document.body.classList.add('leaflet-dragging'));
 map.on('dragend', () => document.body.classList.remove('leaflet-dragging'));
+
+const crossIconSvg = '<svg viewBox="0 0 24 24" width="13" height="13"><rect x="10" y="3" width="4" height="18" rx="1.5" fill="#fff"/><rect x="3" y="10" width="18" height="4" rx="1.5" fill="#fff"/></svg>';
+
+function crossIcon(delay) {
+  return L.divIcon({
+    className: 'cross-marker-wrapper',
+    html: `<span class="cross-marker" style="animation-delay:${delay}s">${crossIconSvg}</span>`,
+    iconSize: [30, 38],
+    iconAnchor: [15, 34],
+    popupAnchor: [0, -30]
+  });
+}
+
+const markers = L.markerClusterGroup({
+  maxClusterRadius: 45,
+  showCoverageOnHover: false,
+  spiderfyOnMaxZoom: true,
+  iconCreateFunction: (cluster) => L.divIcon({
+    className: 'cluster-marker-wrapper',
+    html: `<span class="cluster-marker">${cluster.getChildCount()}</span>`,
+    iconSize: [38, 38]
+  })
+});
 
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
@@ -31,8 +73,10 @@ fetch('data/houses.json')
   .then(houses => {
     const bounds = [];
 
-    houses.forEach(house => {
-      const marker = L.marker([house.lat, house.lng]).addTo(map);
+    houses.forEach((house, i) => {
+      const marker = L.marker([house.lat, house.lng], {
+        icon: crossIcon(Math.min(i * 0.04, 0.6))
+      });
       bounds.push([house.lat, house.lng]);
 
       const popupHtml = `
@@ -43,7 +87,10 @@ fetch('data/houses.json')
         </div>
       `;
       marker.bindPopup(popupHtml);
+      markers.addLayer(marker);
     });
+
+    map.addLayer(markers);
 
     // Jump straight to the fitted view — no animated zoom sweep through every
     // intermediate level (which would fetch a full tile set at each step).

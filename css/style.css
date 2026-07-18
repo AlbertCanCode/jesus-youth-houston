@@ -7,6 +7,8 @@
   --text-dim: #9aa1b2;
   --accent: #d9a441;
   --accent-soft: rgba(217, 164, 65, 0.15);
+  --skeleton-base: var(--panel);
+  --skeleton-shine: var(--panel-border);
   --font-heading: "Fraunces", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -20,6 +22,10 @@
   --text-dim: #6b6555;
   --accent: #a8730a;
   --accent-soft: rgba(168, 115, 10, 0.12);
+  /* Panel/panel-border are too close to the cream background for skeleton
+     shimmer to read — use a more visibly distinct tone just for this. */
+  --skeleton-base: #ece2cc;
+  --skeleton-shine: #ddcfab;
 }
 
 * {
@@ -92,6 +98,72 @@ img {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* ---- Skeleton loaders ---- */
+
+.skeleton {
+  display: block;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-shine) 37%, var(--skeleton-base) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+.skeleton-stat {
+  display: inline-block;
+  width: 72px;
+  height: 26px;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+
+.skeleton-title {
+  width: 55%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.skeleton-meta {
+  width: 40%;
+  height: 14px;
+  margin-bottom: 22px;
+}
+
+.skeleton-notes {
+  width: 100%;
+  height: 70px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.skeleton-section-title {
+  width: 110px;
+  height: 14px;
+  margin-bottom: 12px;
+}
+
+.skeleton-photo {
+  height: 160px;
+}
+
+.skeleton-video {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: var(--skeleton-base);
   }
 }
 
@@ -327,6 +399,93 @@ header.site-header {
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
+}
+
+/* ---- Map markers ---- */
+
+@keyframes marker-drop {
+  0% {
+    transform: scale(0.3) translateY(-16px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.12) translateY(2px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Same drop/bounce as marker-drop, but keeps the pin's -45deg rotation at every
+   stage — an animated `transform` fully replaces the property, so the base
+   rule's rotate(-45deg) would otherwise be silently dropped once this plays. */
+@keyframes marker-drop-pin {
+  0% {
+    transform: rotate(-45deg) scale(0.3) translateY(-16px);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(-45deg) scale(1.12) translateY(2px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.cross-marker-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.cross-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  animation: marker-drop-pin 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cross-marker svg {
+  transform: rotate(45deg);
+}
+
+.cluster-marker-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.cluster-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+  animation: marker-drop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cross-marker,
+  .cluster-marker {
+    animation: none;
+  }
 }
 
 /* ---- House hub page ---- */

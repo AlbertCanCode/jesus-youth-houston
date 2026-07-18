@@ -11,6 +11,7 @@ function formatDate(dateStr) {
 
 function render(house) {
   const content = document.getElementById('hub-content');
+  content.removeAttribute('aria-busy');
   document.title = `${house.name} — Jesus Youth Houston Jubilee Cross`;
 
   const photosHtml = (house.photos && house.photos.length)
@@ -52,10 +53,16 @@ function render(house) {
   }
 }
 
+function showMessage(message) {
+  const content = document.getElementById('hub-content');
+  content.removeAttribute('aria-busy');
+  content.innerHTML = `<p class="empty-note">${message}</p>`;
+}
+
 const houseId = getHouseId();
 
 if (houseId === null) {
-  document.getElementById('hub-content').innerHTML = '<p class="empty-note">No house selected.</p>';
+  showMessage('No house selected.');
 } else {
   fetch('data/houses.json')
     .then(res => res.json())
@@ -64,11 +71,11 @@ if (houseId === null) {
       if (house) {
         render(house);
       } else {
-        document.getElementById('hub-content').innerHTML = '<p class="empty-note">House not found.</p>';
+        showMessage('House not found.');
       }
     })
     .catch(err => {
       console.error('Failed to load houses.json', err);
-      document.getElementById('hub-content').innerHTML = '<p class="empty-note">Failed to load house data.</p>';
+      showMessage('Failed to load house data.');
     });
 }

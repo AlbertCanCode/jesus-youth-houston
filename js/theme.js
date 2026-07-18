@@ -15,6 +15,7 @@
     const next = current === 'light' ? 'dark' : 'light';
     localStorage.setItem('theme', next);
     applyTheme(next);
+    window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: next } }));
   });
 
   // Sync the theme-color meta tag with whatever the blocking head script already set.
