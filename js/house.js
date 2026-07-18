@@ -14,12 +14,12 @@ function render(house) {
   document.title = `${house.name} — Jesus Youth Houston Jubilee Cross`;
 
   const photosHtml = (house.photos && house.photos.length)
-    ? `<div class="photo-grid">${house.photos.map(src => `<img src="${src}" alt="Photo from ${house.name}" loading="lazy" decoding="async" width="480" height="320" />`).join('')}</div>`
+    ? `<div class="photo-grid">${house.photos.map((src, i) => `<img src="${src}" alt="Photo from ${house.name}" loading="lazy" decoding="async" width="480" height="320" class="reveal" style="transition-delay: ${i * 0.06}s" />`).join('')}</div>`
     : `<p class="empty-note">No photos yet from this visit.</p>`;
 
   const videosHtml = (house.videos && house.videos.length)
-    ? `<div class="video-list">${house.videos.map(v => `
-        <div class="video-item">
+    ? `<div class="video-list">${house.videos.map((v, i) => `
+        <div class="video-item reveal" style="transition-delay: ${i * 0.06}s">
           <div class="video-embed">
             <iframe
               src="https://www.youtube-nocookie.com/embed/${v.youtubeId}"
@@ -37,7 +37,7 @@ function render(house) {
   content.innerHTML = `
     <h2 class="hub-title">${house.name}</h2>
     <div class="hub-meta">${house.neighborhood} &middot; visited ${formatDate(house.dateVisited)}</div>
-    <div class="hub-notes">${house.notes}</div>
+    <div class="hub-notes reveal">${house.notes}</div>
 
     <h3 class="section-title">Photos</h3>
     ${photosHtml}
@@ -45,6 +45,11 @@ function render(house) {
     <h3 class="section-title">Videos</h3>
     ${videosHtml}
   `;
+
+  if (window.initReveal) window.initReveal(content);
+  if (window.initLightbox && house.photos && house.photos.length) {
+    window.initLightbox(content, house.photos);
+  }
 }
 
 const houseId = getHouseId();

@@ -1,17 +1,25 @@
-// Continental US bounding box — keeps panning/zooming from wandering off into the ocean or other countries.
-const US_BOUNDS = L.latLngBounds([24.396308, -125.0], [49.384358, -66.93457]);
+// Greater Houston bounding box — keeps the map locked to this region for now.
+// If houses outside the area get added later, widen (or drop) this box.
+const HOUSTON_BOUNDS = L.latLngBounds([29.30, -96.05], [30.35, -94.95]);
 
 const map = L.map('map', {
   scrollWheelZoom: true,
-  minZoom: 4,
-  maxBounds: US_BOUNDS.pad(0.1),
-  maxBoundsViscosity: 1.0
+  minZoom: 8,
+  maxBounds: HOUSTON_BOUNDS.pad(0.15),
+  maxBoundsViscosity: 1.0,
+  zoomSnap: 0.5,
+  zoomDelta: 0.5
 });
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
+
+// A fast drag can outrun the map's own cursor and start selecting the page
+// text behind it — block text selection on the page for the duration of the drag.
+map.on('dragstart', () => document.body.classList.add('leaflet-dragging'));
+map.on('dragend', () => document.body.classList.remove('leaflet-dragging'));
 
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
@@ -56,14 +64,11 @@ function renderStats(houses) {
   const totalEl = document.getElementById('stat-total');
   const firstEl = document.getElementById('stat-first');
   const latestEl = document.getElementById('stat-latest');
-  const neighborhoodsEl = document.getElementById('stat-neighborhoods');
   if (!totalEl) return;
 
   const sorted = [...houses].sort((a, b) => a.dateVisited.localeCompare(b.dateVisited));
-  const neighborhoods = new Set(houses.map(h => h.neighborhood));
 
   totalEl.textContent = houses.length;
   firstEl.textContent = formatDate(sorted[0].dateVisited);
   latestEl.textContent = formatDate(sorted[sorted.length - 1].dateVisited);
-  neighborhoodsEl.textContent = neighborhoods.size;
 }

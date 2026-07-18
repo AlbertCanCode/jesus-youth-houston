@@ -9,6 +9,12 @@
 <meta property="og:title" content="Jesus Youth Houston — Jubilee Cross to Homes" />
 <meta property="og:description" content="Tracking the Jubilee Cross as it visits homes across the Houston region." />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<script>
+  (function () {
+    var saved = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://unpkg.com" crossorigin />
@@ -22,20 +28,26 @@
 <body>
 
 <header class="site-header">
-  <a class="brand" href="index.html">
-    <span class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 64 64" width="26" height="26"><rect x="28" y="10" width="8" height="44" rx="2" fill="currentColor"/><rect x="12" y="24" width="40" height="8" rx="2" fill="currentColor"/></svg>
-    </span>
-    <span class="brand-text">
-      <span class="brand-title">Jesus Youth Houston</span>
-      <span class="brand-tagline">Jubilee Cross &middot; Cross to Homes</span>
-    </span>
-  </a>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="26" height="26"><rect x="28" y="10" width="8" height="44" rx="2" fill="currentColor"/><rect x="12" y="24" width="40" height="8" rx="2" fill="currentColor"/></svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-title">Jesus Youth Houston</span>
+        <span class="brand-tagline">Jubilee Cross &middot; Cross to Homes</span>
+      </span>
+    </a>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+      <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
+  </div>
 </header>
 
 <main class="dashboard">
 
-  <section class="hero">
+  <section class="hero reveal">
     <h1>Cross to Homes</h1>
     <p class="hero-sub">
       Every night during the Jubilee Year, we carry the cross to a different home across the
@@ -45,31 +57,27 @@
   </section>
 
   <section class="stats" id="stats">
-    <div class="stat-card">
+    <div class="stat-card reveal">
       <div class="stat-value" id="stat-total">&mdash;</div>
       <div class="stat-label">Houses visited</div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card reveal" style="transition-delay: 0.06s">
       <div class="stat-value" id="stat-first">&mdash;</div>
       <div class="stat-label">First visit</div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card reveal" style="transition-delay: 0.12s">
       <div class="stat-value" id="stat-latest">&mdash;</div>
       <div class="stat-label">Most recent visit</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-value" id="stat-neighborhoods">&mdash;</div>
-      <div class="stat-label">Neighborhoods reached</div>
-    </div>
   </section>
 
-  <section class="map-section">
+  <section class="map-section reveal">
     <h2 class="section-title">The map</h2>
     <p class="section-lead">Click a pin to open that house's hub &mdash; the story, photos, and video from that night.</p>
     <div id="map"></div>
   </section>
 
-  <section class="about-section">
+  <section class="about-section reveal">
     <h2 class="section-title">About the Jubilee Cross</h2>
     <p>
       The tradition traces back to 1984, when Pope John Paul II entrusted a large wooden cross
@@ -92,8 +100,11 @@
 
 <footer class="site-footer">
   <p>Jesus Youth Houston &middot; Jubilee Year 2025&ndash;2026</p>
+  <p class="credit">Made by Albert Skaria</p>
 </footer>
 
+<script src="js/theme.js"></script>
+<script src="js/reveal.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/map.js"></script>
 </body>
